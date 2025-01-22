@@ -59,16 +59,17 @@ document.addEventListener('DOMContentLoaded', function() {
           lastType = currentType === 'user' ? 'bot' : 'user'; // automatically display multi-turn texts
           return `
             <div class="text-item">
+              <div>
+                <label>
+                <input type="radio" name="textType${index}" value="user" ${currentType === 'user' ? 'checked' : ''}> User
+                </label>
+                <label>
+                <input type="radio" name="textType${index}" value="bot" ${currentType === 'bot' ? 'checked' : ''}> Bot
+                </label>
+              </div>
               ${item.text}
               <span class="remove-text" data-index="${index}">×</span>
-              <div>
-            <label>
-              <input type="radio" name="textType${index}" value="user" ${currentType === 'user' ? 'checked' : ''}> User
-            </label>
-            <label>
-              <input type="radio" name="textType${index}" value="bot" ${currentType === 'bot' ? 'checked' : ''}> Bot
-            </label>
-              </div>
+              
             </div>
           `;
         }).join('');
